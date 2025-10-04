@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Classificador de Emails</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+  <header class="page-header">
+    <h1>Classificador de Emails</h1>
+  </header>
+
+  <main class="main-container">
+    <section class="card left">
+      <form id="emailForm" autocomplete="off">
+        <label for="texto">Texto do Email:</label>
+        <textarea id="texto" name="texto" placeholder="Cole ou escreva o email aqui..."></textarea>
+
+        <label for="arquivo" class="label-file">Ou selecione até 10 arquivos (txt/pdf):</label>
+        <div id="drop-area" class="drop-area">
+          Arraste aqui seus arquivos...
+          <input type="file" id="arquivo" name="arquivo" multiple accept=".txt,.pdf">
+          <label for="arquivo" class="btn-upload">📂 Escolher arquivo</label>
+        </div>
+        <small id="file-info"></small>
+
+        <button type="submit" class="btn-primary">Processar</button>
+      </form>
+    </section>
+
+    <section class="card middle">
+      <h2>Resultado Atual</h2>
+
+      <div id="stats-atual" class="stats-circles">
+        <div class="circle total" data-filter="all">
+          <span id="stat-atual-total">0</span>
+          <small>Total</small>
+        </div>
+        <div class="circle produtivo" data-filter="PRODUTIVO">
+          <span id="stat-atual-produtivo">0</span>
+          <small>Produtivos</small>
+        </div>
+        <div class="circle improdutivo" data-filter="IMPRODUTIVO">
+          <span id="stat-atual-improdutivo">0</span>
+          <small>Improdutivos</small>
+        </div>
+      </div>
+
+      <div id="loader" class="loader hidden">⏳ Processando...</div>
+
+      <div id="resultado" class="resultado-content">Aguardando processamento...</div>
+    </section>
+
+    <section class="card right">
+      <h2>Histórico</h2>
+
+      <div id="stats-hist" class="stats-circles">
+        <div class="circle total">
+          <span id="stat-hist-total">0</span>
+          <small>Total</small>
+        </div>
+        <div class="circle produtivo">
+          <span id="stat-hist-produtivo">0</span>
+          <small>Produtivos</small>
+        </div>
+        <div class="circle improdutivo">
+          <span id="stat-hist-improdutivo">0</span>
+          <small>Improdutivos</small>
+        </div>
+      </div>
+
+      <div id="historico" class="historico-content">Nenhuma execução ainda.</div>
+
+    </section>
+  </main>
+
+  <script src="/static/script.js"></script>
+</body>
+</html>

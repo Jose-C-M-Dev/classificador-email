@@ -1,0 +1,9 @@
+fastapi
+uvicorn[standard]
+httpx
+python-multipart
+python-dotenv
+PyPDF2
+pydantic
+nltk
+unidecode
